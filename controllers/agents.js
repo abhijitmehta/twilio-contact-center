@@ -117,7 +117,7 @@ module.exports.getSession = function (req, res) {
 module.exports.call = function (req, res) {
 	var twiml = new twilio.TwimlResponse()
 
-	twiml.dial({ callerId: req.configuration.twilio.callerId }, function (node) {
+	twiml.dial({ callerId: req.configuration.twilio.callerId , record:'record-from-answer'}, function (node) {
 		node.number(req.query.phone)
 	})
 
